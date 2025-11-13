@@ -230,12 +230,36 @@ main {
 </head>
 <body>
 
-    <!-- 🔵 Header -->
-  <header class="p-4 bg-blue-900 text-white text-center">
-    <a href="https://cinearena.live">
-      <img src="https://cricstream4u.github.io/cinearena/cineheader.png" class="h-10 mx-auto" alt="Cine Arena">
-    </a>
-  </header>
+<header class="bg-blue-900 text-white flex items-center justify-between px-6 py-4 fixed w-full top-0 z-50 shadow">
+  <button id="open-menu" class="text-2xl md:hidden mr-2">☰</button>
+  <a href="https://cinearena.live">
+    <img src="https://cricstream4u.github.io/cinearena/cineheader.png" class="h-9">
+  </a>
+  <nav class="hidden md:flex space-x-6 text-lg">
+    <a href="https://cinearena.live" class="hover:text-cyan-300">Home</a>
+    <a href="https://cinearena.github.io/sports/" class="hover:text-cyan-300">Sports</a>
+    <a href="https://cinearena.live/fancode.html" target="_blank" class="hover:text-cyan-300">Fancode</a>
+    <a href="https://cinearena.github.io/movies/" class="hover:text-cyan-300">Movies</a>
+    <a href="https://cinearena.github.io/music/" class="hover:text-cyan-300">Music</a>
+  </nav>
+</header>
+
+<!-- ✅ Mobile Sidebar -->
+<div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+
+<div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-blue-900 text-white z-50 p-5 transform -translate-x-full transition-transform duration-300">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-lg font-bold">Menu</h2>
+    <button id="close-menu" class="text-2xl">✕</button>
+  </div>
+  <nav class="flex flex-col space-y-4 text-lg">
+    <a href="https://cinearena.live" class="hover:text-cyan-300">Home</a>
+    <a href="https://cinearena.github.io/sports/" class="hover:text-cyan-300">Sports</a>
+    <a href="https://cinearena.live/fancode.html" target="_blank" class="hover:text-cyan-300">Fancode</a>
+    <a href="https://cinearena.github.io/movies/" class="hover:text-cyan-300">Movies</a>
+    <a href="https://cinearena.github.io/music/" class="hover:text-cyan-300">Music</a>
+  </nav>
+</div>
     
   <main>   
 <div class="tab-content">
@@ -244,7 +268,28 @@ main {
 <div id="app" class="file-container"> </div>
 </div></div><font color="black">This site is not affiliated with any television channel. All content is copyright of their respective owners. We cannot accept any responsibility for the content on this site. We cannot control or influence any audiovisual content on this site. Viewers are expected to be wise in processing the information obtained.All links provided on this site are indexed from third-party websites. We do not host any content<br> contact:https://t.me/stream247</font></div>
 
+<!-- Menu overlay -->
+      <script>
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  const openMenu = document.getElementById("open-menu");
+  const closeMenu = document.getElementById("close-menu");
 
+  openMenu.addEventListener("click", () => {
+    sidebar.classList.remove("-translate-x-full");
+    overlay.classList.remove("hidden");
+  });
+
+  closeMenu.addEventListener("click", () => {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+  });
+</script>
 
 <script>
 const channels = [
