@@ -163,11 +163,11 @@ footer {
 <main>
 <center>
 <h1 class="section-title"><span class="icon">📺</span> Sport Channels</h1>
-  </center>
+</center>
 <div class="grid" id="channelGrid"></div>
- </main>
+</main>
   
- <!--- For Mennu -->   
+<!--- For Menu -->   
 <script>
   const sidebar = document.getElementById("sidebar");
   const overlay = document.getElementById("overlay");
@@ -192,60 +192,54 @@ footer {
 
 <!--- For Sports -->    
 <script>
-        function getData() {
-            fetch("https://raw.githubusercontent.com/cinearena/json/main/toffee.json")
-                .then(res => {
-                    return res.json();
-                })
-                .then(json => {
-                    console.log("Fetched data:", json);
-                    const html = json
-                        .map(function(item) {
-                            return `
-                                <div data-name="${item.title}" class="directory-item">
-                                    <a href="https://cinearena.live/player/toffee.html?id=${item.id}">
-                                        <img src="${item.logo}" alt="${item.title}">
-                                    </a>
-                                    <a href="https://cinearena.live/player/toffee.html?id=${item.id}">
-                                        <b>${item.title}</b>
-                                    </a>
-                                </div>
-                            `;
-                        })
-                        .join("");
-                    console.log("Generated HTML:", html);
-                    document.querySelector("#app").innerHTML = html;
-                })
-                .catch(error => {
-                    console.log("Error fetching data:", error);
-                });
-        }
-
-        function searchChannels() {
-            var input = document.getElementById('search-input').value.toLowerCase();
-            var channels = document.querySelectorAll('.directory-item');
-            channels.forEach(function(channel) {
-                var name = channel.getAttribute('data-name').toLowerCase();
-                if (name.includes(input)) {
-                    channel.style.display = 'flex';
-                } else {
-                    channel.style.display = 'none';
-                }
+    function getData() {
+        fetch("https://raw.githubusercontent.com/cinearena/json/main/toffee.json")
+            .then(res => {
+                return res.json();
+            })
+            .then(json => {
+                console.log("Fetched data:", json);
+                const html = json
+                    .map(function(item) {
+                        return `
+                            <div class="card" data-name="${item.title}">
+                                <a href="https://cinearena.live/player/toffee.html?id=${item.id}">
+                                    <img src="${item.logo}" alt="${item.title}">
+                                    <h2>${item.title}</h2>
+                                </a>
+                            </div>
+                        `;
+                    })
+                    .join("");
+                console.log("Generated HTML:", html);
+                document.querySelector("#channelGrid").innerHTML = html;
+            })
+            .catch(error => {
+                console.log("Error fetching data:", error);
+                document.querySelector("#channelGrid").innerHTML = "<p class='text-white text-center'>Error loading channels. Please try again later.</p>";
             });
-        }
+    }
 
-        // Load data when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            getData();
+    function searchChannels() {
+        var input = document.getElementById('search-input').value.toLowerCase();
+        var channels = document.querySelectorAll('.card');
+        channels.forEach(function(channel) {
+            var name = channel.getAttribute('data-name').toLowerCase();
+            if (name.includes(input)) {
+                channel.style.display = 'block';
+            } else {
+                channel.style.display = 'none';
+            }
         });
-    </script>
+    }
 
+    // Load data when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        getData();
+    });
+</script>
 
-
-
-  
-
-  <a href="https://t.me/cine_arena" class="telegram-float" target="_blank">
+<a href="https://t.me/cine_arena" class="telegram-float" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
 </a>
 <br><br>
