@@ -171,30 +171,37 @@ main {
             }
         } 
 
-        .telegram-float {
-      position: fixed;
-      width: 55px;
-      height: 55px;
-      bottom: 20px;
-      right: 20px;
-      background: #0088cc;
-      color: white;
-      border-radius: 50%;
-      text-align: center;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: .3s;
-      z-index: 999;
-    }
-    .telegram-float:hover { transform: scale(1.1); }
+             .telegram-float {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  bottom: 20px;
+  right: 20px;
+  background: #0088cc;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform .3s, box-shadow .3s;
+}
 
-    
-      footer {
-            margin-top: auto;
-      }
+.telegram-float:hover {
+  transform: scale(1.12);
+  box-shadow: 0 12px 18px rgba(0,0,0,0.4);
+}
 
+.telegram-float img {
+  width: 60%;
+  filter: invert(0); /* keep original color */
+}
+
+footer {
+  margin-top: auto;
+}
     
     </style>
   
@@ -284,14 +291,16 @@ const html = channels.map(item =>
 document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
 </script>
 
-<a href="https://t.me/cine_arena" class="telegram-float" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" width="30">
+ <a href="https://t.me/cine_arena" class="telegram-float" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
 </a>
-
-</main> 
-<footer class="bg-blue-900 text-white text-center py-4 mt-8">
+<br><br>
+<footer class="bg-blue-900 text-white text-center py-4 w-full mt-auto">
   <p>© 2025 Cine Arena • Live Sports & Entertainment</p>
-  <p class="text-sm opacity-80">Join Telegram: <a href="https://t.me/cine_arena" class="text-cyan-300">Click Here</a></p>
+  <p class="text-sm opacity-80">
+    Join Telegram:
+    <a href="https://t.me/cine_arena" class="text-cyan-300">Click Here</a>
+  </p>
 </footer>
 
     
