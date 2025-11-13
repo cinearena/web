@@ -1,67 +1,22 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JOIN TV4WAP LIVE4WAP </title>
+    <title>Cine Toffee</title>
     <link rel="icon" href="" type="image/x-icon" />
   
-    
+    <style>
+        .active{background:red}
+        .fix{visibility:hidden}
+        .fixed{background:gold;position:fixed}
+        .tab-pane{overflow: hidden; border: 1px solid #fff; background-color: #f1f1f1; align:center; vertical-align:middle;}
+        
+        .tab-content{background:SeaShell; float: left; border: none; outline: none; cursor: pointer; padding-top: 10px; padding-left: 4px; padding-right: 4px; padding-bottom: 64px; transition: 0.3s; font-size: 9px; align:center; vertical-align:middle; width:100%}
 
-<style>
-.active{background:red}
-.fix{visibility:hidden}
-.fixed{background:gold;position:fixed}
-.tab-pane{overflow: hidden;
-  border: 1px solid #fff;
-  background-color: #f1f1f1;align:center;vertical-align:middle;vertical-align:middle;align:center;align-items:center;vertical-align:middle;horizontal-align:middle;} 
-  
- .tab-content{background:SeaShell;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding-top: 10px;  padding-left: 4px;
-  padding-right: 4px;
-  padding-bottom: 64px;
-
-  transition: 0.3s;
-  font-size: 9px;align:center;vertical-align:middle;vertical-align:middle;align:center;align-items:center;vertical-align:middle;horizontal-align:middle;width:100%}
-
-</style>
-
-<style>
-a:link, a:visited {color: white;
-  
-
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a:hover, a:active {
-  color: black;
-}
-    
+        a:link, a:visited {color: white; text-align: center; text-decoration: none; display: inline-block;}
+        a:hover, a:active {color: black;}
+        
         :root {
             --bg-dark: #121212;
             --bg-medium: #1E1E1E;
@@ -83,67 +38,30 @@ a:hover, a:active {
             background-color: var(--bg-dark);
             color: var(--text-primary);
             line-height: 1.6;
+            padding-top:70px !important;
         }
 
-        .container {align:center;
+        .container {
             max-width: 1600px;
             margin: 0 auto;
             padding: 20px;
             width: 100%;
         }
 
-        
 
-        .telegram-btn {position: fixed;
-            background-color: gold;
-            
-            padding: 2px 2px;
-            
-            text-decoration: none;
-            
-            transition: all 0.2s ease;
-            
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            white-space: nowrap;
-            width: 100%;
-            flex-shrink: 0;
-        }
-.telegram-btn1 {
-            background-color:red;
-            color: gold;
-            padding: 2px 2px;
-            border-radius: 0px;
-            text-decoration: none;
-            font-weight: 900;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            white-space: nowrap;
-            
-            flex-shrink: 0;
-        }
-.telegram-btn2 {
-            background-color: green;
-            color:red;
-            padding: 2px 2px;
-            border-radius: 0px;
-            text-decoration: none;
-            font-weight: 900;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            white-space: nowrap;
-            
-            flex-shrink: 0;
+
+        .search-bar {
+            padding: 10px;
+            text-align: center;
         }
 
-        
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
 
         .file-container {
             display: grid;
@@ -181,12 +99,12 @@ a:hover, a:active {
             color: var(--text-primary);
             text-decoration: none;
             font-size: 1rem;
-            font-weight: 500;  /* Changed from 500 to 400 for lighter font weight */
+            font-weight: 500;
             width: 100%;
         }
 
         .directory-item b {
-            font-weight: 500;  /* Changed from default bold to 400 for lighter font weight */
+            font-weight: 500;
         }
 
         @media (max-width: 768px) {
@@ -228,49 +146,151 @@ a:hover, a:active {
                 font-size: 0.8rem;
             }
         }
+
+        .telegram-float {
+      position: fixed;
+      width: 55px;
+      height: 55px;
+      bottom: 20px;
+      right: 20px;
+      background: #0088cc;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .3s;
+      z-index: 999;
+    }
+    .telegram-float:hover { transform: scale(1.1); }
+        
     </style>
-  
 </head>
 <body>
+   <header class="bg-blue-900 text-white flex items-center justify-between px-6 py-4 fixed w-full top-0 z-50 shadow">
+  <button id="open-menu" class="text-2xl md:hidden mr-2">☰</button>
+  <a href="https://cinearena.live">
+    <img src="https://cricstream4u.github.io/cinearena/cineheader.png" class="h-9">
+  </a>
+  <nav class="hidden md:flex space-x-6 text-lg">
+    <a href="https://cinearena.live" class="hover:text-cyan-300">Home</a>
+    <a href="https://cinearena.github.io/sports/" class="hover:text-cyan-300">Sports</a>
+    <a href="https://cinearena.live/fancode.html" target="_blank" class="hover:text-cyan-300">Fancode</a>
+    <a href="https://cinearena.github.io/movies/" class="hover:text-cyan-300">Movies</a>
+    <a href="https://cinearena.github.io/music/" class="hover:text-cyan-300">Music</a>
+  </nav>
+</header>
+
+<!-- ✅ Mobile Sidebar -->
+<div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+
+<div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-blue-900 text-white z-50 p-5 transform -translate-x-full transition-transform duration-300">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-lg font-bold">Menu</h2>
+    <button id="close-menu" class="text-2xl">✕</button>
+  </div>
+  <nav class="flex flex-col space-y-4 text-lg">
+    <a href="https://cinearena.live" class="hover:text-cyan-300">Home</a>
+    <a href="https://cinearena.github.io/sports/" class="hover:text-cyan-300">Sports</a>
+    <a href="https://cinearena.live/fancode.html" target="_blank" class="hover:text-cyan-300">Fancode</a>
+    <a href="https://cinearena.github.io/movies/" class="hover:text-cyan-300">Movies</a>
+    <a href="https://cinearena.github.io/music/" class="hover:text-cyan-300">Music</a>
+  </nav>
+</div>
+
     
-        
-            <table class="telegram-btn"><tr><td class="telegram-btn1" width="50%"><a href="https://t.me/tvgotk">LIVE4WAP </a></td><td class="telegram-btn2" width="50%"><a href="https://t.me/tv4wap">TV4WAP </a></td></tr></table>
- <table class="telegram-btn1"><tr><td class="telegram-btn1" width="50%"><a href="https://t.me/tvgotk">LIVE4WAP </a></td><td class="telegram-btn2" width="50%"><a href="https://t.me/tv4wap">TV4WAP </a></td></tr></table>
- 
-   <div class="search-bar"> <input type="text" id="search-input" placeholder="Search Channels" onkeyup="searchChannels()"></div>
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search Channels" onkeyup="searchChannels()">
+    </div>
 
- 
- 
-<div class="tab-content">
-  <div class="tab-pane">
-<div class="container">
-<div id="app" class="file-container"> </div>
-</div></div></div>
+    <div class="tab-content">
+        <div class="tab-pane">
+            <div class="container">
+                <div id="app" class="file-container"></div>
+            </div>
+        </div>
+    </div>
 
 
-<script>function getData() {fetch("https://tvgo.neocities.org/Json/toffee.txt") .then(res => {return res.json(); })  .then(json => {console.log(json.data);const html  = json  .map(function(item) { return  "<div data-name='" +item.title+ "' class='directory-item'><a href='https://tvgo.neocities.org/APPTV/toffee?id="+item.id+"'><img src='"+item.logo+"'></a><a href='https://tvgo.neocities.org/APPTV/toffee?id="+item.id+"'><b>"+item.title+"</b></a></div>"; }) .join(""); console.log(html);document.querySelector("#app" ).insertAdjacentHTML("afterbegin", html); }) .catch(error => { console.log(error); });}getData();</script>
+    <!-- menu hover -->
+    <script>
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  const openMenu = document.getElementById("open-menu");
+  const closeMenu = document.getElementById("close-menu");
 
+  openMenu.addEventListener("click", () => {
+    sidebar.classList.remove("-translate-x-full");
+    overlay.classList.remove("hidden");
+  });
 
+  closeMenu.addEventListener("click", () => {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+  });
 
-<script> function filterChannels() { var selectedGroup = document.getElementById('group-select').value; var channels = document.querySelectorAll('.directory-item'); channels.forEach(function(channel) { if (selectedGroup === 'all' || channel.getAttribute('data-group') === selectedGroup) { channel.style.display = 'inline-block'; } else { channel.style.display = 'none'; } }); } function searchChannels() { var input = document.getElementById('search-input').value.toLowerCase(); var channels = document.querySelectorAll('.directory-item'); channels.forEach(function(channel) { var name = channel.getAttribute('data-name').toLowerCase(); if (name.includes(input)) { channel.style.display = 'inline-block'; } else { channel.style.display = 'none'; } }); } function searchChannelss() { var input = document.getElementById('search-input').value.toLowerCase(); var channels = document.querySelectorAll('.directory-item'); channels.forEach(function(channel) { var name = channel.getAttribute('data-name').toLowerCase(); if (name.includes(input)) { channel.style.display = 'inline-block'; } else { channel.style.display = 'none'; } }); } const checkbox = document.getElementById("checkbox"); checkbox.addEventListener("change", () => { document.body.classList.toggle("dark-mode"); }); </script>
+  overlay.addEventListener("click", () => {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+  });
+</script>
+    
 
+    <script>
+        function getData() {
+            fetch("https://raw.githubusercontent.com/cinearena/json/main/toffee.json")
+                .then(res => {
+                    return res.json();
+                })
+                .then(json => {
+                    console.log("Fetched data:", json);
+                    const html = json
+                        .map(function(item) {
+                            return `
+                                <div data-name="${item.title}" class="directory-item">
+                                    <a href="https://cinearena.live/player/toffee.html?id=${item.id}">
+                                        <img src="${item.logo}" alt="${item.title}">
+                                    </a>
+                                    <a href="https://cinearena.live/player/toffee.html?id=${item.id}">
+                                        <b>${item.title}</b>
+                                    </a>
+                                </div>
+                            `;
+                        })
+                        .join("");
+                    console.log("Generated HTML:", html);
+                    document.querySelector("#app").innerHTML = html;
+                })
+                .catch(error => {
+                    console.log("Error fetching data:", error);
+                });
+        }
 
+        function searchChannels() {
+            var input = document.getElementById('search-input').value.toLowerCase();
+            var channels = document.querySelectorAll('.directory-item');
+            channels.forEach(function(channel) {
+                var name = channel.getAttribute('data-name').toLowerCase();
+                if (name.includes(input)) {
+                    channel.style.display = 'flex';
+                } else {
+                    channel.style.display = 'none';
+                }
+            });
+        }
 
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            getData();
+        });
+    </script>
 
+    <a href="https://t.me/cine_arena" class="telegram-float" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" width="30">
+</a>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+</body>
+</html>
